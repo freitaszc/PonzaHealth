@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload de PDF - PonzaHealth</title>
+    <link rel="stylesheet" href="/static/web.css">
+    <style>
+        .file-input-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .file-input-container input[type=file] {
+            opacity: 0;
+            width: 300px;
+            height: 45px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+
+        .file-input-label {
+            display: inline-block;
+            background-color: white;
+            color: #3498db;
+            border: 2px solid #3498db;
+            padding: 10px 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            width: 300px;
+            text-align: center;
+            transition: 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .file-input-label:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        #file-name {
+            margin-top: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .button-outline {
+            display: inline-block;
+            background-color: white;
+            color: #3498db;
+            border: 2px solid #3498db;
+            padding: 10px 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            width: 300px;
+            text-align: center;
+            margin: 10px 0;
+            text-decoration: none;
+            transition: 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .button-outline:hover {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <img src="{{ url_for('static', filename='logo.png') }}" 
+             style="width: 200px; display: block; margin: 20px auto;">
+        <h2>Upload de PDF</h2>
+        <form method="post" enctype="multipart/form-data">
+            <div class="file-input-container">
+                <label class="file-input-label" for="pdf_file">Selecionar PDF</label>
+                <input type="file" id="pdf_file" name="pdf_file" accept="application/pdf" required onchange="updateFileName()">
+            </div>
+            <div id="file-name">Nenhum arquivo selecionado</div>
+            <br>
+            <a href="#" onclick="this.closest('form').submit(); return false;" class="button-outline">Analisar PDF e Cadastrar Paciente</a>
+        </form>
+        <br>
+        <a href="/index" class="button-outline">Voltar</a>
+    </div>
+
+    <script>
+        function updateFileName() {
+            const input = document.getElementById('pdf_file');
+            const fileNameDiv = document.getElementById('file-name');
+            if (input.files.length > 0) {
+                fileNameDiv.textContent = input.files[0].name;
+            } else {
+                fileNameDiv.textContent = 'Nenhum arquivo selecionado';
+            }
+        }
+    </script>
+</body>
+</html>

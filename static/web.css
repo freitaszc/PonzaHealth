@@ -1,0 +1,101 @@
+/* Estilo base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+form {
+    text-align: center;
+}
+
+input, textarea, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 300px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Botão azul preenchido (padrão antigo, ainda útil em algumas páginas) */
+.action-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    border: none;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.action-button:hover {
+    background-color: #2980b9;
+}
+
+/* Botão com borda azul, fundo branco (estilo moderno) */
+.button-outline {
+    display: inline-block;
+    background-color: white;
+    color: #3498db;
+    border: 2px solid #3498db;
+    padding: 10px 18px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 8px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    border-radius: 6px;
+}
+
+.button-outline:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Tabela moderna e limpa */
+.catalog-table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+}
+
+.catalog-table th, .catalog-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.catalog-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.catalog-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Impressão: oculta botões e elementos com essa classe */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}

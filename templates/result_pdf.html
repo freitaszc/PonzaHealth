@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado - PonzaHealth (PDF)</title>
+    <link rel="stylesheet" href="/static/pdf.css">
+    <style>
+        body {
+            margin: 1cm 0.5cm; 
+            font-family: "Times New Roman", serif;
+            font-size: 14px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 10px 20px;
+        }
+        .patient-info {
+            text-align: left;
+            white-space: pre-wrap;
+            max-width: 60%;
+        }
+        .logo {
+            width: 150px;
+            margin-top: -10px;
+        }
+        .result-title {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="patient-info">
+{{ result_text.split('Consulta cadastrada em')[0].strip() }}
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='logo.png', _external=True) }}" class="logo">
+        </div>
+    </div>
+    <div style="padding: 0 20px;">
+        <h2 style="text-align: center;">Resultado da Análise</h2>
+        <pre style="font-family: 'Times New Roman', serif; font-size: 14px;">
+Consulta cadastrada em{{ result_text.split('Consulta cadastrada em')[1] if 'Consulta cadastrada em' in result_text else '' }}
+        </pre>
+    </div>
+</body>
+</html>

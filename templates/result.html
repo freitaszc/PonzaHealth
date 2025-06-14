@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado - PonzaHealth</title>
+    <link rel="stylesheet" href="/static/web.css">
+</head>
+<body>
+    <div style="text-align: center;">
+        <img src="{{ url_for('static', filename='logo.png') }}" 
+             style="width: 200px; margin: 20px auto; display: block;">
+        <h2>Resultado da Análise</h2>
+        <pre>{{ result_text }}</pre>
+        <p class="no-print">
+            <a href="/download_pdf" target="_blank" class="button-outline">Download PDF</a>
+        </p>
+        <p class="no-print">
+            <a href="/catalog" class="button-outline">Catálogo de Pacientes</a>
+        </p>
+        <p class="no-print">
+            <a href="/index" class="button-outline">Voltar</a>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - PonzaHealth</title>
+    <link rel="stylesheet" href="/static/web.css">
+</head>
+<body>
+    <div style="text-align: center;">
+        <img src="{{ url_for('static', filename='logo.png') }}" 
+             style="width: 200px; margin: 20px auto; display: block;">
+        <h2>Login</h2>
+        <form method="post">
+            <input type="text" name="username" placeholder="Usuário" required><br>
+            <input type="password" name="password" placeholder="Senha" required><br>
+            <button type="submit" class="button-outline">Entrar</button>
+        </form>
+        {% if error %}<p style="color:red;">{{ error }}</p>{% endif %}
+    </div>
+</body>
+</html>

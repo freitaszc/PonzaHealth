@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adicionar Consulta - PonzaHealth</title>
+  <link rel="stylesheet" href="/static/web.css">
+  <style>
+    .content-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px 0;
+    }
+    textarea {
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    .button-outline {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      background-color: white;
+      color: #3498db;
+      border: 2px solid #3498db;
+      padding: 10px 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      margin: 10px 0;
+      border-radius: 6px;
+      box-sizing: border-box;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .button-outline:hover {
+      background-color: #3498db;
+      color: white;
+    }
+    .consult-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .consult-list li {
+      margin-bottom: 16px;
+    }
+    .consult-list strong {
+      display: block;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .consult-list span {
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-container">
+    <img src="{{ url_for('static', filename='logo.png') }}"
+         style="width: 200px; display: block; margin: 0 auto 20px;">
+    <h2 style="font-size: 24px; margin-bottom: 20px;">
+      Adicionar Consulta – {{ patient.name }}
+    </h2>
+
+    <form method="post">
+      <textarea name="consultation"
+                rows="8"
+                placeholder="Digite o texto da consulta..."
+                required></textarea>
+      <button type="submit" class="button-outline">Salvar Consulta</button>
+    </form>
+
+    <h3 style="margin-top: 30px; font-size: 18px;">Consultas anteriores (resumo):</h3>
+    {% if consultations %}
+      <ul class="consult-list">
+        {% for c in consultations %}
+          <li>
+            {% for line in c.summary %}
+              {{ line }}<br>
+            {% endfor %}
+
+            <strong>Prescrição:</strong>
+            {% if c.prescription %}
+              {% for p in c.prescription %}
+                {{ p }}<br>
+              {% endfor %}
+            {% else %}
+              <span>Nenhuma prescrição registrada.</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p style="color: #777;">Nenhuma consulta registrada ainda.</p>
+    {% endif %}
+
+    <a href="/catalog" class="button-outline">Voltar</a>
+  </div>
+</body>
+</html>

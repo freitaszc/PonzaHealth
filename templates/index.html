@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PonzaHealth - Início</title>
+    <link rel="stylesheet" href="/static/web.css">
+</head>
+<body>
+    <div style="text-align: center;">
+        <img src="{{ url_for('static', filename='logo.png') }}" 
+             style="width: 200px; margin: 20px auto; display: block;">
+        <h2>Bem-vindo ao PonzaHealth</h2>
+        <a href="/upload" class="button-outline">Enviar PDF para Análise</a><br>
+        <a href="/catalog" class="button-outline">Catálogo de Pacientes</a><br>
+        <a href="/logout" class="button-outline">Logout</a>
+    </div>
+</body>
+</html>
